@@ -88,7 +88,7 @@ uint8_t VGA_RAM1[(VGA_DISPLAY_X+1)*VGA_DISPLAY_Y];
 // 1TIC      = 11,90ns
 //
 //--------------------------------------------------------------
-#define  VGA_TIM2_HSYNC_PERIODE   2667
+#define  VGA_TIM2_HSYNC_PERIODE   2668
 #define  VGA_TIM2_HSYNC_PRESCALE     0
 
 #define  VGA_TIM2_HSYNC_IMP       320  // HSync-length (3,81us)
