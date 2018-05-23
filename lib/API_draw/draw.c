@@ -131,8 +131,8 @@ void DrawEllips(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color) {
 
 	int yp,xp;
 
-	for(int yp=-y1; yp<=y1; yp++) {
-	    for(int xp=-x1; xp<=x1; xp++) {
+	for(yp=-y1; yp<=y1; yp++) {
+	    for(xp=-x1; xp<=x1; xp++) {
 	        if(xp*xp*y1*y1+yp*yp*x1*x1 <= y1*y1*x1*x1)
 	        	UB_VGA_SetPixel(xp+x, yp+y, color);
 	    }
@@ -142,17 +142,19 @@ void DrawEllips(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color) {
 }
 
 
-void drawchar(char symbol, int16_t x,int16_t y)
+uint8_t drawchar(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t backgroundcolor)
 {
-	int i,k;
-	int index;
-	int color;
+	int i = 0;
+	int k = 0;
+	int charIndex = 0;
+	int charColor = 0;
 	uint8_t charpixelheight		= 15;
-	uint8_t widthpixelarr[]		= {4,6,6,8,7,6,6};
-	char 	fontpixelchars[]	= {'1','2','3','4','5','6','7'};
+	uint8_t widthpixelarr[7]	= {4,6,6,8,7,6,6};
+	char 	fontpixelchars[7]	= {'1','2','3','4','5','6','7'};
 
-	for( i= 0; symbol =! fontpixelchars[i];i++){
-		index =+ (charpixelheight*widthpixelarr[i]);
+	while(symbol != fontpixelchars[i]) {
+		charIndex += (charpixelheight*widthpixelarr[i]);
+		i++;
 	}
 
 	 uint16_t xp,yp;
@@ -160,17 +162,29 @@ void drawchar(char symbol, int16_t x,int16_t y)
 	  for(yp=y;yp<(charpixelheight+y);yp++) {
 	    for(xp=x;xp<(widthpixelarr[i]+x);xp++) {
 	      k++;
-	      if(pixel[k+index] > 0x00)
+	      if(pixel[k+charIndex] != 0x00)
 	      {
-	    	  color = 0xFF;
+	    	  charColor = color;
 	      }
 	      else
 	      {
-	    	  color = 0x00;
+	    	  charColor = 0x00;
 	      }
-	      UB_VGA_SetPixel(xp,yp,color);
+	      UB_VGA_SetPixel(xp,yp,charColor);
 	    }
 	  }
+	  return(widthpixelarr[i]);
+}
+
+
+void Drawtext(char* tekst, int16_t x,int16_t y, uint8_t color, uint8_t backgroundcolor) {
+int spacing = 0;
+
+	while(tekst != 'x') {
+		spacing += drawchar(*tekst, x+spacing, y, color, backgroundcolor);
+		tekst++;
+	}
+
 }
 
 void Drawbitmap(int16_t x,int16_t y,int16_t sel)
