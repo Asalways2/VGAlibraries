@@ -118,6 +118,21 @@ void DrawRect(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color)
 	}
 }
 
+void DrawEllips(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color) {
+	//int r2 = (pow(X-x, 2)/x1) + (pow(Y-y, 2)/y2);
+
+	int yp,xp;
+
+	for(int yp=-y1; yp<=y1; yp++) {
+	    for(int xp=-x1; xp<=x1; xp++) {
+	        if(xp*xp*y1*y1+yp*yp*x1*x1 <= y1*y1*x1*x1)
+	        	UB_VGA_SetPixel(xp+x, yp+y, color);
+	    }
+	}
+
+
+}
+
 /*
 drawchar(char symbol, int16_t x,int16_t y,);
 {
