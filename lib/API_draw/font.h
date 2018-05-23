@@ -1639,3 +1639,103 @@
 	  0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  //......
 	  0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  //......
 	};
+
+
+widtharr[]={4, ,1}
+
+	  {.w_px = 4,	.glyph_index = 0},	/*Unicode: U+0020 ( )*/
+	  {.w_px = 1,	.glyph_index = 60},	/*Unicode: U+0021 (!)*/
+	  {.w_px = 4,	.glyph_index = 75},	/*Unicode: U+0022 (")*/
+	  {.w_px = 8,	.glyph_index = 135},	/*Unicode: U+0023 (#)*/
+	  {.w_px = 6,	.glyph_index = 255},	/*Unicode: U+0024 ($)*/
+	  {.w_px = 12,	.glyph_index = 345},	/*Unicode: U+0025 (%)*/
+	  {.w_px = 8,	.glyph_index = 525},	/*Unicode: U+0026 (&)*/
+	  {.w_px = 1,	.glyph_index = 645},	/*Unicode: U+0027 (')*/
+	  {.w_px = 5,	.glyph_index = 660},	/*Unicode: U+0028 (()*/
+	  {.w_px = 4,	.glyph_index = 735},	/*Unicode: U+0029 ())*/
+	  {.w_px = 6,	.glyph_index = 795},	/*Unicode: U+002a (*)*/
+	  {.w_px = 7,	.glyph_index = 885},	/*Unicode: U+002b (+)*/
+	  {.w_px = 2,	.glyph_index = 990},	/*Unicode: U+002c (,)*/
+	  {.w_px = 4,	.glyph_index = 1020},	/*Unicode: U+002d (-)*/
+	  {.w_px = 1,	.glyph_index = 1080},	/*Unicode: U+002e (.)*/
+	  {.w_px = 6,	.glyph_index = 1095},	/*Unicode: U+002f (/)*/
+	  {.w_px = 6,	.glyph_index = 1185},	/*Unicode: U+0030 (0)*/
+	  {.w_px = 4,	.glyph_index = 1275},	/*Unicode: U+0031 (1)*/
+	  {.w_px = 6,	.glyph_index = 1335},	/*Unicode: U+0032 (2)*/
+	  {.w_px = 6,	.glyph_index = 1425},	/*Unicode: U+0033 (3)*/
+	  {.w_px = 8,	.glyph_index = 1515},	/*Unicode: U+0034 (4)*/
+	  {.w_px = 7,	.glyph_index = 1635},	/*Unicode: U+0035 (5)*/
+	  {.w_px = 6,	.glyph_index = 1740},	/*Unicode: U+0036 (6)*/
+	  {.w_px = 6,	.glyph_index = 1830},	/*Unicode: U+0037 (7)*/
+	  {.w_px = 6,	.glyph_index = 1920},	/*Unicode: U+0038 (8)*/
+	  {.w_px = 6,	.glyph_index = 2010},	/*Unicode: U+0039 (9)*/
+	  {.w_px = 1,	.glyph_index = 2100},	/*Unicode: U+003a (:)*/
+	  {.w_px = 2,	.glyph_index = 2115},	/*Unicode: U+003b (;)*/
+	  {.w_px = 7,	.glyph_index = 2145},	/*Unicode: U+003c (<)*/
+	  {.w_px = 7,	.glyph_index = 2250},	/*Unicode: U+003d (=)*/
+	  {.w_px = 7,	.glyph_index = 2355},	/*Unicode: U+003e (>)*/
+	  {.w_px = 5,	.glyph_index = 2460},	/*Unicode: U+003f (?)*/
+	  {.w_px = 11,	.glyph_index = 2535},	/*Unicode: U+0040 (@)*/
+	  {.w_px = 7,	.glyph_index = 2700},	/*Unicode: U+0041 (A)*/
+	  {.w_px = 7,	.glyph_index = 2805},	/*Unicode: U+0042 (B)*/
+	  {.w_px = 8,	.glyph_index = 2910},	/*Unicode: U+0043 (C)*/
+	  {.w_px = 8,	.glyph_index = 3030},	/*Unicode: U+0044 (D)*/
+	  {.w_px = 7,	.glyph_index = 3150},	/*Unicode: U+0045 (E)*/
+	  {.w_px = 7,	.glyph_index = 3255},	/*Unicode: U+0046 (F)*/
+	  {.w_px = 8,	.glyph_index = 3360},	/*Unicode: U+0047 (G)*/
+	  {.w_px = 8,	.glyph_index = 3480},	/*Unicode: U+0048 (H)*/
+	  {.w_px = 4,	.glyph_index = 3600},	/*Unicode: U+0049 (I)*/
+	  {.w_px = 5,	.glyph_index = 3660},	/*Unicode: U+004a (J)*/
+	  {.w_px = 7,	.glyph_index = 3735},	/*Unicode: U+004b (K)*/
+	  {.w_px = 7,	.glyph_index = 3840},	/*Unicode: U+004c (L)*/
+	  {.w_px = 9,	.glyph_index = 3945},	/*Unicode: U+004d (M)*/
+	  {.w_px = 8,	.glyph_index = 4080},	/*Unicode: U+004e (N)*/
+	  {.w_px = 9,	.glyph_index = 4200},	/*Unicode: U+004f (O)*/
+	  {.w_px = 6,	.glyph_index = 4335},	/*Unicode: U+0050 (P)*/
+	  {.w_px = 9,	.glyph_index = 4425},	/*Unicode: U+0051 (Q)*/
+	  {.w_px = 8,	.glyph_index = 4560},	/*Unicode: U+0052 (R)*/
+	  {.w_px = 6,	.glyph_index = 4680},	/*Unicode: U+0053 (S)*/
+	  {.w_px = 7,	.glyph_index = 4770},	/*Unicode: U+0054 (T)*/
+	  {.w_px = 8,	.glyph_index = 4875},	/*Unicode: U+0055 (U)*/
+	  {.w_px = 7,	.glyph_index = 4995},	/*Unicode: U+0056 (V)*/
+	  {.w_px = 12,	.glyph_index = 5100},	/*Unicode: U+0057 (W)*/
+	  {.w_px = 8,	.glyph_index = 5280},	/*Unicode: U+0058 (X)*/
+	  {.w_px = 8,	.glyph_index = 5400},	/*Unicode: U+0059 (Y)*/
+	  {.w_px = 8,	.glyph_index = 5520},	/*Unicode: U+005a (Z)*/
+	  {.w_px = 4,	.glyph_index = 5640},	/*Unicode: U+005b ([)*/
+	  {.w_px = 6,	.glyph_index = 5700},	/*Unicode: U+005c (\)*/
+	  {.w_px = 3,	.glyph_index = 5790},	/*Unicode: U+005d (])*/
+	  {.w_px = 8,	.glyph_index = 5835},	/*Unicode: U+005e (^)*/
+	  {.w_px = 8,	.glyph_index = 5955},	/*Unicode: U+005f (_)*/
+	  {.w_px = 3,	.glyph_index = 6075},	/*Unicode: U+0060 (`)*/
+	  {.w_px = 6,	.glyph_index = 6120},	/*Unicode: U+0061 (a)*/
+	  {.w_px = 6,	.glyph_index = 6210},	/*Unicode: U+0062 (b)*/
+	  {.w_px = 6,	.glyph_index = 6300},	/*Unicode: U+0063 (c)*/
+	  {.w_px = 6,	.glyph_index = 6390},	/*Unicode: U+0064 (d)*/
+	  {.w_px = 6,	.glyph_index = 6480},	/*Unicode: U+0065 (e)*/
+	  {.w_px = 5,	.glyph_index = 6570},	/*Unicode: U+0066 (f)*/
+	  {.w_px = 6,	.glyph_index = 6645},	/*Unicode: U+0067 (g)*/
+	  {.w_px = 6,	.glyph_index = 6735},	/*Unicode: U+0068 (h)*/
+	  {.w_px = 1,	.glyph_index = 6825},	/*Unicode: U+0069 (i)*/
+	  {.w_px = 3,	.glyph_index = 6840},	/*Unicode: U+006a (j)*/
+	  {.w_px = 6,	.glyph_index = 6885},	/*Unicode: U+006b (k)*/
+	  {.w_px = 1,	.glyph_index = 6975},	/*Unicode: U+006c (l)*/
+	  {.w_px = 11,	.glyph_index = 6990},	/*Unicode: U+006d (m)*/
+	  {.w_px = 6,	.glyph_index = 7155},	/*Unicode: U+006e (n)*/
+	  {.w_px = 6,	.glyph_index = 7245},	/*Unicode: U+006f (o)*/
+	  {.w_px = 6,	.glyph_index = 7335},	/*Unicode: U+0070 (p)*/
+	  {.w_px = 6,	.glyph_index = 7425},	/*Unicode: U+0071 (q)*/
+	  {.w_px = 4,	.glyph_index = 7515},	/*Unicode: U+0072 (r)*/
+	  {.w_px = 6,	.glyph_index = 7575},	/*Unicode: U+0073 (s)*/
+	  {.w_px = 5,	.glyph_index = 7665},	/*Unicode: U+0074 (t)*/
+	  {.w_px = 6,	.glyph_index = 7740},	/*Unicode: U+0075 (u)*/
+	  {.w_px = 6,	.glyph_index = 7830},	/*Unicode: U+0076 (v)*/
+	  {.w_px = 9,	.glyph_index = 7920},	/*Unicode: U+0077 (w)*/
+	  {.w_px = 6,	.glyph_index = 8055},	/*Unicode: U+0078 (x)*/
+	  {.w_px = 6,	.glyph_index = 8145},	/*Unicode: U+0079 (y)*/
+	  {.w_px = 6,	.glyph_index = 8235},	/*Unicode: U+007a (z)*/
+	  {.w_px = 6,	.glyph_index = 8325},	/*Unicode: U+007b ({)*/
+	  {.w_px = 1,	.glyph_index = 8415},	/*Unicode: U+007c (|)*/
+	  {.w_px = 6,	.glyph_index = 8430},	/*Unicode: U+007d (})*/
+	  {.w_px = 8,	.glyph_index = 8520},	/*Unicode: U+007e (~)*/
+
