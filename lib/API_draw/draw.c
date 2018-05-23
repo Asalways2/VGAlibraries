@@ -155,8 +155,17 @@ drawchar(char symbol, int16_t x,int16_t y,);
 	  }
 }
 */
-
-
+void Drawbitmap(int16_t x,int16_t y,int16_t sel)
+{
+	int yp,xp;
+	int k = 0;
+	  for(yp=y;yp<(50+y);yp++) {
+	    for(xp=x;xp<(50+x);xp++) {
+	    	k++;
+	    	UB_VGA_SetPixel(xp,yp,bitmaps[sel][k]);
+	    }
+	}
+}
 
 
 
