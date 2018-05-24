@@ -80,7 +80,7 @@ void DrawLine(uint16_t *DrawError, int16_t x,int16_t y,int16_t x1, int16_t y1, i
 	if ( x > VGA_DISPLAY_X||y > VGA_DISPLAY_Y)
 	{
 		*DrawError = OUTOFRANGE;
-		exit(1);
+		return;
 	}
 
 	if(abs(y1-y)<abs(x1-x))
@@ -121,26 +121,37 @@ void DrawTriangle(uint16_t *DrawError,int16_t x, int16_t y, int16_t x1, int16_t 
 }
 
 
-void DrawRect(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color)
+void DrawRect(uint16_t *DrawError,int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color)
 {
 	int yp,xp;
 
 	  for(yp=x;yp<y1;yp++) {
 	    for(xp=y;xp<x1;xp++) {
-	      UB_VGA_SetPixel(xp,yp,color);
+	    	if(xp < VGA_DISPLAY_X && yp < VGA_DISPLAY_Y){
+	    		UB_VGA_SetPixel(xp,yp,color);
+	    	}
+	    	else{
+	    		*DrawError = OUTOFRANGE;
+	    	}
 	    }
 	}
 }
 
-void DrawEllips(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color) {
+void DrawEllips(uint16_t *DrawError,int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color) {
 	//int r2 = (pow(X-x, 2)/x1) + (pow(Y-y, 2)/y2);
 
 	int yp,xp;
 
 	for(yp=-y1; yp<=y1; yp++) {
 	    for(xp=-x1; xp<=x1; xp++) {
-	        if(xp*xp*y1*y1+yp*yp*x1*x1 <= y1*y1*x1*x1)
-	        	UB_VGA_SetPixel(xp+x, yp+y, color);
+	        if(xp*xp*y1*y1+yp*yp*x1*x1 <= y1*y1*x1*x1) {
+	        	if(xp+x < VGA_DISPLAY_X && yp+y < VGA_DISPLAY_Y) {
+	        		UB_VGA_SetPixel(xp+x, yp+y, color);
+	        	}
+	        	else {
+	        		*DrawError = OUTOFRANGE;
+	        	}
+	        }
 	    }
 	}
 
@@ -148,7 +159,7 @@ void DrawEllips(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color) {
 }
 
 
-uint8_t drawchar(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style)
+uint8_t drawchar(uint16_t *DrawError,char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style)
 {
 	int i = 0;
 	int k = 0;
@@ -185,8 +196,14 @@ uint8_t drawchar(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style)
 	 for(yp=y;yp<(charpixelheight+y);yp++) {
 	    for(xp=x;xp<(fontInfo[i][2]+x);xp++) {
 	    	if(wCount == 7) {k++; wCount = 0;}
-		    if(pixel[k+fontInfo[i][1]] & (0b10000000 >> wCount))
-		    	UB_VGA_SetPixel(xp,yp,color);
+		    if(pixel[k+fontInfo[i][1]] & (0b10000000 >> wCount)) {
+		    	if(xp < VGA_DISPLAY_X && yp < VGA_DISPLAY_Y){
+		    		UB_VGA_SetPixel(xp,yp,color);
+		    	}
+		    	else{
+		    		*DrawError = OUTOFRANGE;
+		    	}
+		    }
 		    wCount++;
 	    }
 	    wCount=0;
@@ -196,12 +213,12 @@ uint8_t drawchar(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style)
 }
 
 
-void Drawtext(char* tekst, int16_t x,int16_t y, uint8_t color, uint8_t style) {
+void Drawtext(uint16_t *DrawError,char* tekst, int16_t x,int16_t y, uint8_t color, uint8_t style) {
 int spacing = 0;
 int line = 0;
 
 	while(*tekst != '\0') {
-		spacing += drawchar(*tekst, x+spacing, y+line, color, style) + 1;
+		spacing += drawchar(DrawError, *tekst, x+spacing, y+line, color, style) + 1;
 		tekst++;
 		if(x+spacing > VGA_DISPLAY_X-15){
 			line+=15;
@@ -211,7 +228,7 @@ int line = 0;
 
 }
 
-void Drawbitmap(int16_t x,int16_t y,int16_t sel)
+void Drawbitmap(uint16_t *DrawError,int16_t x,int16_t y,int16_t sel)
 {
 	int yp,xp;
 	int k = 0;
