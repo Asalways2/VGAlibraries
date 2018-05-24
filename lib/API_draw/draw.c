@@ -75,8 +75,14 @@ void DrawLineNeg(int16_t x,int16_t y,int16_t x1, int16_t y1, uint8_t color, int8
 	}
 }
 
-void DrawLine(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color, int8_t width)
+void DrawLine(uint16_t *DrawError, int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color, int8_t width)
 {
+	if ( x > VGA_DISPLAY_X||y > VGA_DISPLAY_Y)
+	{
+		*DrawError = OUTOFRANGE;
+		exit(1);
+	}
+
 	if(abs(y1-y)<abs(x1-x))
 	{
 		if(x > x1) // lijn van rechts naar links (startpunt rechts van eindpunt)
@@ -106,11 +112,11 @@ void DrawLine(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color, int8_t w
 	}
 }
 
-void DrawTriangle(int16_t x, int16_t y, int16_t x1, int16_t y1, int16_t x2, int16_t y2, int8_t color) {
+void DrawTriangle(uint16_t *DrawError,int16_t x, int16_t y, int16_t x1, int16_t y1, int16_t x2, int16_t y2, int8_t color) {
 
-	DrawLine(x,y,x1,y1,color,1);
-	DrawLine(x1,y1,x2,y2,color,1);
-	DrawLine(x2,y2,x,y,color,1);
+	DrawLine(DrawError,x,y,x1,y1,color,1);
+	DrawLine(DrawError,x1,y1,x2,y2,color,1);
+	DrawLine(DrawError,x2,y2,x,y,color,1);
 
 }
 
