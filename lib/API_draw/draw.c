@@ -77,7 +77,7 @@ void DrawLineNeg(int16_t x,int16_t y,int16_t x1, int16_t y1, uint8_t color, int8
 
 void DrawLine(uint16_t *DrawError, int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color, int8_t width)
 {
-	if ( x > VGA_DISPLAY_X||y > VGA_DISPLAY_Y)
+	if ( x > VGA_DISPLAY_X || y > VGA_DISPLAY_Y)
 	{
 		*DrawError = OUTOFRANGE;
 		return;
@@ -230,13 +230,23 @@ int line = 0;
 
 void Drawbitmap(uint16_t *DrawError,int16_t x,int16_t y,int16_t sel)
 {
+	if(sel > 2)
+		*DrawError = BITMAPINDEX;
+	else
+	{
 	int yp,xp;
 	int k = 0;
 	  for(yp=y;yp<(50+y);yp++) {
 	    for(xp=x;xp<(50+x);xp++) {
 	    	k++;
+	    	if ( xp > VGA_DISPLAY_X || yp > VGA_DISPLAY_Y)
+	    	{
+	    		*DrawError = OUTOFRANGE;
+	    	}
+	    	else
 	    	UB_VGA_SetPixel(xp,yp,bitmaps[sel][k]);
 	    }
+	  }
 	}
 }
 
