@@ -141,7 +141,7 @@ void DrawEllips(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color) {
 
 }
 
-
+/*
 uint8_t drawchar(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t backgroundcolor)
 {
 	int i = 0;
@@ -176,12 +176,57 @@ uint8_t drawchar(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t backgr
 	  return(widthpixelarr[i]);
 }
 
+*/
 
-void Drawtext(char* tekst, int16_t x,int16_t y, uint8_t color, uint8_t backgroundcolor) {
+uint8_t drawchar2(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style)
+{
+	int i = 0;
+	int k = 0;
+	uint8_t charpixelheight	= 15;
+
+	uint16_t (*fontInfo)[3];
+	static const uint8_t (*pixel);
+
+	if(style == 0) {
+		fontInfo = regularFontInfo;
+		pixel = regularFontPixel;
+	}
+	else if(style == 1) {
+		fontInfo = italicFontInfo;
+		pixel = italicFontPixel;
+	}
+	else{
+		fontInfo = regularFontInfo;
+		pixel = regularFontPixel;
+	}
+
+
+	while(symbol != fontInfo[i][0] && i < fontSize) {
+		i++;
+	}
+
+	 uint16_t xp,yp;
+	 uint8_t wCount = 0;
+
+	 for(yp=y;yp<(charpixelheight+y);yp++) {
+	    for(xp=x;xp<(fontInfo[i][2]+x);xp++) {
+	    	if(wCount == 7) {k++; wCount = 0;}
+		    if(pixel[k+fontInfo[i][1]] & (0b10000000 >> wCount))
+		    	UB_VGA_SetPixel(xp,yp,color);
+		    wCount++;
+	    }
+	    wCount=0;
+	    k++;
+	 }
+	 return(fontInfo[i][2]);
+}
+
+
+void Drawtext(char* tekst, int16_t x,int16_t y, uint8_t color, uint8_t style) {
 int spacing = 0;
 
-	while(tekst != 'x') {
-		spacing += drawchar(*tekst, x+spacing, y, color, backgroundcolor);
+	while(*tekst != '\0') {
+		spacing += drawchar2(*tekst, x+spacing, y, color, style) + 1;
 		tekst++;
 	}
 
