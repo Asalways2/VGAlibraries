@@ -195,6 +195,10 @@ uint8_t drawchar2(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style
 		fontInfo = italicFontInfo;
 		pixel = italicFontPixel;
 	}
+	else if(style == 2) {
+		fontInfo = boldFontInfo;
+		pixel = boldFontPixel;
+	}
 	else{
 		fontInfo = regularFontInfo;
 		pixel = regularFontPixel;
@@ -224,10 +228,15 @@ uint8_t drawchar2(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style
 
 void Drawtext(char* tekst, int16_t x,int16_t y, uint8_t color, uint8_t style) {
 int spacing = 0;
+int line = 0;
 
 	while(*tekst != '\0') {
-		spacing += drawchar2(*tekst, x+spacing, y, color, style) + 1;
+		spacing += drawchar2(*tekst, x+spacing, y+line, color, style) + 1;
 		tekst++;
+		if(x+spacing > VGA_DISPLAY_X-15){
+			line+=15;
+			spacing=0;
+		}
 	}
 
 }
