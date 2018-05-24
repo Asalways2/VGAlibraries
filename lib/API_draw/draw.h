@@ -14,8 +14,7 @@ void DrawLineNeg(int16_t x,int16_t y,int16_t x1, int16_t y1, uint8_t color, int8
 void DrawLinePos(int16_t x,int16_t y,int16_t x1, int16_t y1, uint8_t color, int8_t width);
 void DrawRect(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color);
 void DrawTriangle(int16_t x, int16_t y, int16_t x1, int16_t y1, int16_t x2, int16_t y2, int8_t color);
-uint8_t drawchar(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t backgroundcolor);
 void DrawEllips(int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color);
 void Drawbitmap(int16_t x,int16_t y,int16_t sel);
 void Drawtext(char* tekst, int16_t x,int16_t y, uint8_t color, uint8_t style);
-uint8_t drawchar2(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style);
+uint8_t drawchar(char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style);
