@@ -80,7 +80,7 @@ void DrawLine(uint16_t *DrawError, int16_t x,int16_t y,int16_t x1, int16_t y1, i
 	if ( x > VGA_DISPLAY_X || y > VGA_DISPLAY_Y)
 	{
 		*DrawError = OUTOFRANGE;
-		return;
+
 	}
 
 	if(abs(y1-y)<abs(x1-x))
