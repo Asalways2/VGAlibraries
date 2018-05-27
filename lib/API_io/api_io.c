@@ -381,5 +381,3 @@ void DMA2_Stream5_IRQHandler(void)
     GPIOE->BSRRH = VGA_GPIO_HINIBBLE;
   }
 }
-
-
