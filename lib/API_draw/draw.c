@@ -13,16 +13,15 @@
 #include "draw.h"
 
 /**
-*@brief \n this function fills the whole screen with one color
-*@param
-*       color
+*@brief \n this function fills the whole screen with one color(8bits)
+*@param color 8 bit color look at *macros* for premade colors
+*
 *
 *
 */
 void UB_VGA_FillScreen(uint8_t color)
 {
   uint16_t xp,yp;
-  /// je moeder heeft een dikke kut
   for(yp=0;yp<VGA_DISPLAY_Y;yp++) {
     for(xp=0;xp<VGA_DISPLAY_X;xp++) {
       UB_VGA_SetPixel(xp,yp,color);
@@ -30,11 +29,11 @@ void UB_VGA_FillScreen(uint8_t color)
   }
 }
 /**
+*
 *@brief \n
-*@param
-*       DrawLine
-*
-*
+*<B>PRIVATE FUNCTION</B><br><br>
+*this function is called by **Drawline()**.<br>
+*Use DrawLine()!
 */
 void DrawLinePos(int16_t x,int16_t y,int16_t x1, int16_t y1, uint8_t color, int8_t width)
 {
@@ -67,7 +66,13 @@ void DrawLinePos(int16_t x,int16_t y,int16_t x1, int16_t y1, uint8_t color, int8
 		D += 2*dx;
 	}
 }
-
+/**
+*
+*@brief \n
+*<B>PRIVATE FUNCTION</B><br><br>
+*this function is called by **Drawline()**.<br>
+*Use DrawLine()!
+*/
 void DrawLineNeg(int16_t x,int16_t y,int16_t x1, int16_t y1, uint8_t color, int8_t width)
 {
 
@@ -97,7 +102,22 @@ void DrawLineNeg(int16_t x,int16_t y,int16_t x1, int16_t y1, uint8_t color, int8
 		D += 2*dy;
 	}
 }
-
+/**
+*@brief \n
+*
+*DrawLine() draws a line between two (x,y)coördinates with a given color and width
+*
+*@param DrawError is a pointer to a uint16_t. the function wil write a error to this place if a error occurs
+*@param x         the x coördinate where the <B>begin</B> of the line wile be written
+*@param y         the y coördinate where the <B>begin</B> of the line wile be written
+*@param x1        the x coördinate where the <B>end</B> of the line wile be written
+*@param y1        the y coördinate where the <B>end</B> of the line wile be written
+*@param color     8 bit color look at *macros* for premade colors
+*@param width     width of the line in pixels
+*
+*
+*@return void
+*/
 void DrawLine(uint16_t *DrawError, int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color, int8_t width)
 {
 	if ( x > VGA_DISPLAY_X || y > VGA_DISPLAY_Y)
@@ -134,7 +154,21 @@ void DrawLine(uint16_t *DrawError, int16_t x,int16_t y,int16_t x1, int16_t y1, i
 		}
 	}
 }
-
+/**
+*@brief \n
+*with DrawTriangle() you can draw a triangle between three points with a color
+*@param DrawError is a pointer to a uint16_t. the function wil write a error to this place if a error occurs
+*@param x         the x coördinate for the first point of the triangle
+*@param y         the y coördinate for the first point of the triangle
+*@param x1        the x coördinate for the second point of the triangle
+*@param y1        the y coördinate for the second point of the triangle
+*@param x2        the x coördinate for the third point of the triangle
+*@param y2        the y coördinate for the third point of the triangle
+*@param color     8 bit color look at *macros* for premade colors
+*
+*
+*@return void
+*/
 void DrawTriangle(uint16_t *DrawError,int16_t x, int16_t y, int16_t x1, int16_t y1, int16_t x2, int16_t y2, int8_t color) {
 
 	DrawLine(DrawError,x,y,x1,y1,color,1);
@@ -142,7 +176,19 @@ void DrawTriangle(uint16_t *DrawError,int16_t x, int16_t y, int16_t x1, int16_t 
 	DrawLine(DrawError,x2,y2,x,y,color,1);
 
 }
-
+/**
+*@brief \n
+*with DrawRect() you can draw a rectangle by entering two point diagonal from each other.
+*@param DrawError is a pointer to a uint16_t. the function wil write a error to this place if a error occurs
+*@param x         the x coördinate for the first point of the rectangle
+*@param y         the y coördinate for the first point of the rectangle
+*@param x1        the x coördinate for the second point of the rectangle
+*@param y1        the y coördinate for the second point of the rectangle
+*@param color     8 bit color look at *macros* for premade colors
+*
+*
+*@return void
+*/
 
 void DrawRect(uint16_t *DrawError,int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color)
 {
@@ -159,9 +205,19 @@ void DrawRect(uint16_t *DrawError,int16_t x,int16_t y,int16_t x1, int16_t y1, in
 	    }
 	}
 }
-
+/**
+*@brief \n
+*with DrawEllips() you can draw a ellips by entering two x coördinates and two y coördinates the box that you have defined with these coördinates will be filled with a ellips
+*@param DrawError is a pointer to a uint16_t. the function wil write a error to this place if a error occurs
+*@param x         the x line for the <B>upper</B> boundary of the ellips
+*@param y         the y line for the <B>left</B>boundary of the ellips
+*@param x1        the x line for the <B>lower</B> boundary of the ellips
+*@param y1        the y line for the <B>Right</B> boundary of the ellips
+*@param color     8 bit color look at *macros* for premade colors
+*
+*@return void
+*/
 void DrawEllips(uint16_t *DrawError,int16_t x,int16_t y,int16_t x1, int16_t y1, int8_t color) {
-	//int r2 = (pow(X-x, 2)/x1) + (pow(Y-y, 2)/y2);
 
 	int yp,xp;
 
@@ -181,6 +237,19 @@ void DrawEllips(uint16_t *DrawError,int16_t x,int16_t y,int16_t x1, int16_t y1, 
 
 }
 
+/**
+*@brief \n
+*with drawchar() you can draw a character on the screen, amazing is it not?
+*@param DrawError is a pointer to a uint16_t. the function wil write a error to this place if a error occurs
+*@param symbol    the symbol is a char which will be written on te screen
+*@param x         the x coördinate for the first point of the character
+*@param y         the y coördinate for the first point of the character
+*@param color     8 bit color look at *macros* for premade colors
+*@param style     the style of the text 0 for Normal 1 for bold 2 for cursive
+
+*
+*@return void
+*/
 
 uint8_t drawchar(uint16_t *DrawError,char symbol, int16_t x,int16_t y, uint8_t color, uint8_t style)
 {

@@ -1,9 +1,12 @@
-/*
- * FontItalic.h
- *
- *  Created on: 24 mei 2018
- *      Author: Remyv
- */
+/**
+* @file FontItalic.h
+* @brief
+* contains the Italic font for Drawtext() and drawchar()
+*
+* @author Remy van der Pol
+* @author Erwin Blankestein
+*
+*/
 
 #ifndef LIB_API_DRAW_FONTITALIC_H_
 #define LIB_API_DRAW_FONTITALIC_H_

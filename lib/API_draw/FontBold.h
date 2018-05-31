@@ -1,9 +1,12 @@
-/*
- * FontBold.h
- *
- *  Created on: 24 mei 2018
- *      Author: Remyv
- */
+/**
+* @file FontBold.h
+* @brief
+* contains the bold font for Drawtext() and drawchar()
+*
+* @author Remy van der Pol
+* @author Erwin Blankestein
+*
+*/
 
 #ifndef LIB_API_DRAW_FONTBOLD_H_
 #define LIB_API_DRAW_FONTBOLD_H_

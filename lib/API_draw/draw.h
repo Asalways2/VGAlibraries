@@ -1,8 +1,14 @@
-/**@file
-*@brief
+/**
+* @file draw.h
+* @brief
+* This header file contains the prototype's  enum's and includes for draw.c
+*
+*
+* @author Remy van der Pol
+* @author Erwin Blankestein
+*
 */
 #include "api_io.h"
-
 #include "stdlib.h"
 #include <math.h>
 #include "bitmap.h"

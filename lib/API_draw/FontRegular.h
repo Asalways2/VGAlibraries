@@ -1,10 +1,12 @@
-/*
- * FontData.h
- *
- *  Created on: 23 mei 2018
- *      Author: Remyv
- */
-
+/**
+* @file FontRegular.h
+* @brief
+* contains the Regular font for Drawtext() and drawchar()
+*
+* @author Remy van der Pol
+* @author Erwin Blankestein
+*
+*/
 #ifndef LIB_API_DRAW_FONTREGULAR_H_
 #define LIB_API_DRAW_FONTREGULAR_H_
 
