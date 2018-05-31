@@ -14,5 +14,5 @@ var draw_8h =
     [ "Drawtext", "draw_8h.html#a35fab7ff683a0c96c6ca8109a47ca02f", null ],
     [ "DrawTriangle", "draw_8h.html#a834a12ffd3cbaec0db148cfd0a2ef695", null ],
     [ "UB_VGA_FillScreen", "draw_8h.html#a8afc87fd0f1737d58c7ee92629be9c92", null ],
-    [ "DrawError", "draw_8h.html#a98c7b1a509dbf252cf2686c4ead5cfdd", null ]
+    [ "DrawError", "draw_8h.html#a257681678af9eb764128b7a6f3fd8d67", null ]
 ];

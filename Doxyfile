@@ -791,7 +791,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  ="C:\Users\erwin\OneDrive\Bureaublad\periode D\VGAlibraries\lib\API_draw" "C:\Users\erwin\OneDrive\Bureaublad\periode D\VGAlibraries\lib\API_io" "Maindoc.md"
+INPUT                  =".\lib\API_draw" ".\lib\API_io" "Maindoc.md"
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -927,7 +927,7 @@ EXAMPLE_RECURSIVE      = NO
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH             ="C:\Users\erwin\OneDrive\Bureaublad\periode D\VGAlibraries\Doxyfiles\image"
+IMAGE_PATH             =".\Doxyfiles\image"
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program

@@ -1,18 +1,41 @@
+/**
+* @file draw.c
+* @brief
+* This c file contains all the draw functions for the VGA Screen
+*
+*
+* @author Remy van der Pol
+* @author Erwin Blankestein
+*
+*/
+
+
 #include "draw.h"
-//--------------------------------------------------------------
-// Füllt den Screen mit einer Farbe
-//--------------------------------------------------------------
+
+/**
+*@brief \n this function fills the whole screen with one color
+*@param
+*       color
+*
+*
+*/
 void UB_VGA_FillScreen(uint8_t color)
 {
   uint16_t xp,yp;
-
+  /// je moeder heeft een dikke kut
   for(yp=0;yp<VGA_DISPLAY_Y;yp++) {
     for(xp=0;xp<VGA_DISPLAY_X;xp++) {
       UB_VGA_SetPixel(xp,yp,color);
     }
   }
 }
-
+/**
+*@brief \n
+*@param
+*       DrawLine
+*
+*
+*/
 void DrawLinePos(int16_t x,int16_t y,int16_t x1, int16_t y1, uint8_t color, int8_t width)
 {
 	int16_t dx = x1 - x;
@@ -249,8 +272,3 @@ void Drawbitmap(uint16_t *DrawError,int16_t x,int16_t y,int16_t sel)
 	  }
 	}
 }
-
-
-
-
-
